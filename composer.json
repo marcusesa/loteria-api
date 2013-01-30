@@ -1,0 +1,23 @@
+{
+    "name": "marcusesa/loteria-api",
+    "description": "Api que fornece dados da loteria brasileira",
+    "keywords": ["loteria", "api"],
+    "authors": [
+        {
+            "name": "Marcus Vinicius e Sá",
+            "email": "marcusesa@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "silex/silex": "1.0.*@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7@stable"
+    },
+    "autoload": {
+        "psr-0": {
+            "" : "src/" 
+        }
+    }
+}    
