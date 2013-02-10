@@ -10,7 +10,8 @@
     ],
     "require": {
         "php": ">=5.4",
-        "silex/silex": "1.0.*@dev"
+        "silex/silex": "1.0.*@dev",
+        "kodify/downloader": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7@stable"
