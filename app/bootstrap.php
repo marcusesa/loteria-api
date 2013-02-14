@@ -1,6 +1,10 @@
 <?php
 
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT_PATH', realpath(__DIR__ . DS . '..'));
+
 /**
  * Autoload Composer 
  */
-require_once __DIR__.'/../vendor/autoload.php';
+ 
+require ROOT_PATH . DS . 'vendor' . DS . 'autoload.php';
