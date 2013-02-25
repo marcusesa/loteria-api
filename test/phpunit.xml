@@ -1,0 +1,8 @@
+<phpunit bootstrap="../bootstrap.php"
+         colors="true">
+    <filter>
+        <whitelist>
+            <directory>../src/LoteriaApi</directory>
+        </whitelist>
+    </filter>
+</phpunit>
