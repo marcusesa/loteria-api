@@ -1,3 +1,4 @@
 megasena:
   name: "Mega-Sena"
   url: "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip"
+  zip: "megasena.zip"
