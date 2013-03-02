@@ -35,4 +35,32 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
         $instance = $this->config->setExt('yml');
         $this->assertInstanceOf('LoteriaApi\Config', $instance);        
     }
+    
+    public function testGetDataShouldReturnAnArray(){
+        $result = $this->config->setApiPath(API_PATH)
+            ->setDirectory('etc')
+            ->setFileName('datasource')
+            ->setExt('ini')
+            ->getData();
+        $this->assertTrue(is_array($result));
+        $this->assertEquals([
+            'megasena' => [
+                'name' => 'Mega-Sena',
+                'url' => 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip',
+                'zip' => 'megasena.zip'
+            ]
+        ], $result);
+    }
+ 
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage File does not exist 
+     */
+    public function testGetDataShouldThrownAnException(){
+        $this->config->setApiPath(API_PATH)
+            ->setDirectory('etc')
+            ->setFileName('noexist')
+            ->setExt('ini')
+            ->getData();
+    }
 }
