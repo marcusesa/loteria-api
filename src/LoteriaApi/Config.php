@@ -27,4 +27,15 @@ class Config {
         $this->ext = $ext;
         return $this;
     }
+    
+    public function getData(){
+        $file = $this->apiPath. DS .
+                $this->directory. DS .
+                $this->filename. '.' .  $this->ext;
+                
+        if(!is_file($file))
+            throw new \Exception ('File does not exist');
+
+        return parse_ini_file($file, true);
+    }
 }
