@@ -37,19 +37,31 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
     }
     
     public function testGetDataShouldReturnAnArray(){
-        $result = $this->config->setApiPath(API_PATH)
+        $config = $this->config->setApiPath(API_PATH)
             ->setDirectory('etc')
-            ->setFileName('datasource')
-            ->setExt('ini')
+            ->setExt('ini');
+        
+        $datasource = $config->setFileName('datasource')
             ->getData();
-        $this->assertTrue(is_array($result));
+        
+        $this->assertTrue(is_array($datasource));
         $this->assertEquals([
             'megasena' => [
                 'name' => 'Mega-Sena',
                 'url' => 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip',
                 'zip' => 'megasena.zip'
             ]
-        ], $result);
+        ], $datasource);
+        
+        $path = $config->setFileName('path')
+            ->getData();
+        
+        $this->assertTrue(is_array($path));
+        $this->assertEquals([
+            'path' => [
+                'ZIP' => API_PATH . 'var' . DS . 'zip' . DS
+            ]
+        ], $path);
     }
  
     /**
