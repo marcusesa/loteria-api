@@ -1,7 +1,7 @@
 <?php
 
 define('DS', DIRECTORY_SEPARATOR);
-define('API_PATH', realpath(__DIR__));
+define('API_PATH', realpath(__DIR__) . DS);
 
 /**
  * Autoload Composer 
