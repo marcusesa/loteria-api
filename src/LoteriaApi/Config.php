@@ -29,10 +29,10 @@ class Config {
     }
     
     public function getData(){
-        $file = $this->apiPath. DS .
+        $file = $this->apiPath. 
                 $this->directory. DS .
                 $this->filename. '.' .  $this->ext;
-                
+        
         if(!is_file($file))
             throw new \Exception ('File does not exist');
 
