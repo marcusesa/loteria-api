@@ -59,7 +59,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue(is_array($path));
         $this->assertEquals([
             'path' => [
-                'ZIP' => API_PATH . 'var' . DS . 'zip' . DS
+                'zip' => API_PATH . 'var' . DS . 'zip' . DS
             ]
         ], $path);
     }
@@ -69,8 +69,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
      * @expectedExceptionMessage File does not exist 
      */
     public function testGetDataShouldThrownAnException(){
-        $this->config->setApiPath(API_PATH)
-            ->setDirectory('etc')
+        $this->config->setDirectory('etc')
             ->setFileName('noexist')
             ->setExt('ini')
             ->getData();
