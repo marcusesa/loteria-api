@@ -6,28 +6,29 @@ use Kodify\DownloaderBundle\Service\Downloader;
 
 class Download {
     private $component;
-    private $config;
-    private $pathFiles;
+    private $datasource;
+    private $localstorage;
     
-    public function __construct() {
-        $this->pathFiles = API_PATH.DS.'var'.DS.'zip'.DS;
-    }
-
     public function setComponent(Downloader $component){
         $this->component = $component;
         return $this;
     }
     
-    public function setConfig(array $config) {
-        $this->config = $config;
+    public function setDataSource(array $datasource) {
+        $this->datasource = $datasource;
         return $this;
     }
     
+    public function setLocalStorage($localstorage) {
+        $this->localstorage = $localstorage;
+        return $this;
+    }
+
     public function run() {
-        foreach ($this->config as $concurso) {
+        foreach ($this->datasource as $concurso) {
             $this->component->downloadFile(
                     $concurso['url'], 
-                    $this->pathFiles, 
+                    $this->localstorage, 
                     $concurso['zip']
             );
         }
