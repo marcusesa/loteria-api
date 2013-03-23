@@ -11,6 +11,7 @@ use LoteriaApi\Config,
     VIPSoft\Unzip\Unzip;    
 
 $config = (new Config)
+    ->setApiPath(API_PATH)
     ->setDirectory('etc')
     ->setExt('ini');
 
@@ -25,13 +26,13 @@ $datasources = $config
 (new Download())
     ->setComponent(new Downloader)
     ->setDataSource($datasources)
-    ->setLocalStorage($paths['zip'])
+    ->setLocalStorage($paths['path']['zip'])
     ->run();
 
 (new Extract())
     ->setComponent(new Unzip)
     ->setDataSource($datasources)
-    ->setLocalStorage($paths['ext'])    
+    ->setLocalStorage($paths['path']['ext'])    
     ->run();
 
 $data = (new Reader)
@@ -41,5 +42,5 @@ $data = (new Reader)
 (new Writer)
     ->setDataSource($datasources)
     ->setData($data)    
-    ->setLocalStorage($paths['xml'])    
+    ->setLocalStorage($paths['path']['xml'])    
     ->run();
