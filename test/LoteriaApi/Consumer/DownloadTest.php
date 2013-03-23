@@ -3,6 +3,7 @@
 namespace LoteriaApi\Consumer;
 
 use \Kodify\DownloaderBundle\Service\Downloader;
+use \LoteriaApi\Config;
 
 class DownloadTest extends \PHPUnit_Framework_TestCase {
     private $download;
@@ -23,28 +24,36 @@ class DownloadTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('LoteriaApi\Consumer\Download', $instance);
     }
     
-    public function testSetConfigShouldReturnInstanceOfDownload() {
-        $instance = $this->download->setConfig([]);
-        $this->assertInstanceOf('LoteriaApi\Consumer\Download', $instance);        
+    public function testSetDataSourceShouldReturnInstanceOfDownload() {
+        $instance = $this->download->setDataSource([]);
+        $this->assertInstanceOf('LoteriaApi\Consumer\Download', $instance);
+    }
+    
+    public function testSetLocalStorageShouldReturnInstanceOfDownload() {
+        $instance = $this->download->setLocalStorage('test');
+        $this->assertInstanceOf('LoteriaApi\Consumer\Download', $instance);
     }
     
     public function testRunShouldDownloadFiles() {
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-            ->will($this->returnValue([
-            'megasena' => [
-                'name' => 'Mega-Sena',
-                'url' => 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip',
-                'zip' => 'megasena.zip'
-            ]
-        ]));
+        $config = (new Config)
+            ->setApiPath(API_PATH)
+            ->setDirectory('etc')
+            ->setExt('ini');
+
+        $paths = $config
+            ->setFileName('path')
+            ->getData();
+        
+        $datasources = $config
+            ->setFileName('datasource')
+            ->getData();
         
         $this->download
             ->setComponent(new Downloader)
-            ->setConfig($config->getData())
+            ->setDataSource($datasources)
+            ->setLocalStorage($paths['path']['zip'])    
             ->run();
         
-        $this->assertFileExists(API_PATH.DS.'var'.DS.'zip'.DS.'megasena.zip');
+        $this->assertFileExists($paths['path']['zip'].'megasena.zip');
     }
 }
