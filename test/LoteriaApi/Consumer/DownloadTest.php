@@ -3,7 +3,6 @@
 namespace LoteriaApi\Consumer;
 
 use \Kodify\DownloaderBundle\Service\Downloader;
-use \LoteriaApi\Config;
 
 class DownloadTest extends \PHPUnit_Framework_TestCase {
     private $download;
@@ -35,18 +34,29 @@ class DownloadTest extends \PHPUnit_Framework_TestCase {
     }
     
     public function testRunShouldDownloadFiles() {
-        $config = (new Config)
-            ->setApiPath(API_PATH)
-            ->setDirectory('etc')
-            ->setExt('ini');
+        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
+        $config->expects($this->any())
+            ->method('getData')
+           ->will($this->returnValue([
+            'megasena' => [
+                'name' => 'Mega-Sena',
+                'url' => 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip',
+                'zip' => 'megasena.zip'
+            ]
+        ]));
 
-        $paths = $config
-            ->setFileName('path')
-            ->getData();
-        
-        $datasources = $config
-            ->setFileName('datasource')
-            ->getData();
+        $datasources = $config->getData();
+
+        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
+        $config->expects($this->any())
+            ->method('getData')
+           ->will($this->returnValue([
+            'path' => [
+                'zip' => API_PATH . 'var' . DS . 'zip' . DS
+            ]
+        ]));
+
+        $paths = $config->getData();
         
         $this->download
             ->setComponent(new Downloader)
