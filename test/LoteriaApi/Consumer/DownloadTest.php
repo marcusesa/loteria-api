@@ -64,6 +64,8 @@ class DownloadTest extends \PHPUnit_Framework_TestCase {
             ->setLocalStorage($paths['path']['zip'])    
             ->run();
         
-        $this->assertFileExists($paths['path']['zip'].'megasena.zip');
+        $file = $paths['path']['zip'].'megasena.zip';
+        $this->assertFileExists($file);
+        unlink($file);
     }
 }
