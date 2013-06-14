@@ -23,13 +23,13 @@ $datasources = $config
     ->setFileName('datasource')
     ->getData();
 
-(new Download())
+(new Download)
     ->setComponent(new Downloader)
     ->setDataSource($datasources)
     ->setLocalStorage($paths['path']['zip'])
     ->run();
 
-(new Extract())
+(new Extract)
     ->setComponent(new Unzip)
     ->setDataSource($datasources)
     ->setLocalStorage($paths['path']['ext'])    
