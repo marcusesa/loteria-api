@@ -59,7 +59,8 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue(is_array($path));
         $this->assertEquals([
             'path' => [
-                'zip' => API_PATH . 'var' . DS . 'zip' . DS
+                'zip' => API_PATH . 'var' . DS . 'zip' . DS,
+                'ext' => API_PATH . 'var' . DS . 'ext' . DS,
             ]
         ], $path);
     }
