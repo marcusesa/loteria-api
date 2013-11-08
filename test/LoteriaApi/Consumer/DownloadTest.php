@@ -52,7 +52,7 @@ class DownloadTest extends \PHPUnit_Framework_TestCase {
             ->method('getData')
            ->will($this->returnValue([
             'path' => [
-                'zip' => API_PATH . 'var' . DS . 'zip' . DS
+                'zip' => API_PATH . 'var' . DS . '_test' . DS . 'zip' . DS
             ]
         ]));
 
