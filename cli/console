@@ -32,7 +32,7 @@ $datasources = $config
 (new Extract)
     ->setComponent(new Unzip)
     ->setDataSource($datasources)
-    ->setLocalStorage($paths['path']['ext'])    
+    ->setPathsStorage($paths)    
     ->run();
 
 $data = (new Reader)
