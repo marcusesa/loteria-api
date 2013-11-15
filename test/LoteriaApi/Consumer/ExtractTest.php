@@ -40,7 +40,9 @@ class ExtractTest extends \PHPUnit_Framework_TestCase {
            ->will($this->returnValue([
             'megasena' => [
                 'name' => 'Mega-Sena',
-                'zip' => 'test_megasena.zip'
+                'zip' => 'test_megasena.zip',
+                'html' => 'D_MEGA.HTM',
+                'gif' => 'T2.GIF',
             ]
         ]));
 
@@ -64,9 +66,12 @@ class ExtractTest extends \PHPUnit_Framework_TestCase {
             ->setPaths($paths)    
             ->run();
         
-        $file = $paths['path']['ext'].'D_MEGA.HTM';
-        $this->assertFileExists($file);
-        unlink($file);
+        $html = $paths['path']['ext'].$datasources['megasena']['html'];
+        $this->assertFileExists($html);        
+        
+        unlink($html);
+        $gif = $paths['path']['ext'].$datasources['megasena']['gif'];
+        unlink($gif);
     }
 
 }
