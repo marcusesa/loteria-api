@@ -49,7 +49,9 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
             'megasena' => [
                 'name' => 'Mega-Sena',
                 'url' => 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip',
-                'zip' => 'megasena.zip'
+                'zip' => 'megasena.zip',
+                'html' => 'D_MEGA.HTM',
+                'gif' => 'T2.GIF',
             ]
         ], $datasource);
         
