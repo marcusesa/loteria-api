@@ -37,10 +37,11 @@ $datasources = $config
 
 $data = (new Reader)
     ->setDataSource($datasources)
+    ->setPathsStorage($paths) 
     ->getData();
 
 (new Writer)
     ->setDataSource($datasources)
+    ->setLocalStorage($paths['path']['xml'])
     ->setData($data)    
-    ->setLocalStorage($paths['path']['xml'])    
     ->run();
