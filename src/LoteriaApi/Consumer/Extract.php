@@ -19,7 +19,7 @@ class Extract {
         return $this;
     }
 
-    public function setPaths($paths) {
+    public function setPathsStorage($paths) {
         $this->paths = $paths;
         return $this;
     }
