@@ -28,8 +28,8 @@ class ExtractTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('LoteriaApi\Consumer\Extract', $instance);
     }
     
-    public function testSetPathsShouldReturnInstanceOfExtract() {
-        $instance = $this->extract->setPaths('test');
+    public function testSetPathsStorageShouldReturnInstanceOfExtract() {
+        $instance = $this->extract->setPathsStorage('test');
         $this->assertInstanceOf('LoteriaApi\Consumer\Extract', $instance);
     }
     
@@ -63,7 +63,7 @@ class ExtractTest extends \PHPUnit_Framework_TestCase {
         $this->extract
             ->setComponent(new Unzip)
             ->setDataSource($datasources)
-            ->setPaths($paths)    
+            ->setPathsStorage($paths)    
             ->run();
         
         $html = $paths['path']['ext'].$datasources['megasena']['html'];

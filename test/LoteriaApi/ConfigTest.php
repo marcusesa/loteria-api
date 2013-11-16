@@ -52,6 +52,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
                 'zip' => 'megasena.zip',
                 'html' => 'D_MEGA.HTM',
                 'gif' => 'T2.GIF',
+                'reader' => 'LoteriaApi\Consumer\Reader\Megasena',
             ]
         ], $datasource);
         
