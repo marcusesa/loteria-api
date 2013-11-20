@@ -20,8 +20,10 @@ class Megasena implements IReader {
 
         for ($concursoHtml = 1; $concursoHtml < $trs->length; $concursoHtml++) {
             $tds = $trs->item($concursoHtml)->getElementsByTagName('td');
+            
+            $nrconcurso = $tds->item(0)->nodeValue;
 
-            $data[$tds->item(0)->nodeValue] = [
+            $data[$nrconcurso] = [
                 'data' => $tds->item(1)->nodeValue,
                 'dezenas' => [
                     0 => $tds->item(2)->nodeValue,
