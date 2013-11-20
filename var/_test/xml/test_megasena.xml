@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<concursos>
+  <concurso numero="1">
+    <data>11/03/1996</data>
+    <dezenas>
+      <dezena>41</dezena>
+      <dezena>05</dezena>
+      <dezena>04</dezena>
+      <dezena>52</dezena>
+      <dezena>30</dezena>
+      <dezena>33</dezena>
+    </dezenas>
+    <arrecadacao>0,00</arrecadacao>
+    <total_ganhadores>0</total_ganhadores>
+    <acumulado>SIM</acumulado>
+    <valor_acumulado>1.714.650,23</valor_acumulado>
+  </concurso>
+  <concurso numero="1547">
+    <data>13/11/2013</data>
+    <dezenas>
+      <dezena>28</dezena>
+      <dezena>21</dezena>
+      <dezena>09</dezena>
+      <dezena>10</dezena>
+      <dezena>02</dezena>
+      <dezena>18</dezena>
+    </dezenas>
+    <arrecadacao>34.028.022,00</arrecadacao>
+    <total_ganhadores>1</total_ganhadores>
+    <acumulado>N&#xC3;O</acumulado>
+    <valor_acumulado>0,00</valor_acumulado>
+  </concurso>
+</concursos>
