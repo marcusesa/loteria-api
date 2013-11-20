@@ -53,6 +53,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
                 'html' => 'D_MEGA.HTM',
                 'gif' => 'T2.GIF',
                 'reader' => 'LoteriaApi\Consumer\Reader\Megasena',
+                'xml' => 'megasena.xml',
             ]
         ], $datasource);
         
@@ -64,6 +65,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
             'path' => [
                 'zip' => API_PATH . 'var' . DS . 'zip' . DS,
                 'ext' => API_PATH . 'var' . DS . 'ext' . DS,
+                'xml' => API_PATH . 'var' . DS . 'xml' . DS,
             ]
         ], $path);
     }
