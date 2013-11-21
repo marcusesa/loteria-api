@@ -9,7 +9,7 @@ Este projeto tem como objetivo fornecer dados da loteria da Caixa Econômica Fed
 
 ##### *Vagrant 
 Com vagrant você pode subir o ambiente com apenas um vagrant up.
-Veja mais em [http://www.vagrantup.com/].
+Veja mais em [aqui](http://www.vagrantup.com/).
 
 ##### Setup
 Baixe o vendor via composer. 
@@ -22,4 +22,36 @@ Execute os testes.
 cd test
 php ../vendor/bin/phpunit .
 ```
+
+## Como funciona 
+A api é basicamente composta por duas partes uma que consome os dados da Caixa e outro que fornece estes dados.
+
+- - -
+
+<img src="https://raw.github.com/marcusesa/loteria-api/master/fluxoapi.png"
+    alt="Fluxo API"
+    align="right"
+    vspace="60px"
+    />
+
+###Consumer
+
+Esta parte é executa por um script em ```cli/console```.
+
+1. Baixa os dados da loteria através das urls em ```etc/datasource.ini```.
+2. Descompacta o arquivo.
+3. Consome o arquivo e parseia-o para um xml amigavel em ```var/xml```.
+
+Obs: os algoritmos que parseiam os dados estão em classes que implementam a interface IReader.
+
+###Provider
+
+1. Recebe a requisição atraves de rotas definidas.
+2. Consome o xml com os dados.
+3. Entrega os dados para o usuário em json.
+
+
+
+
+
 
