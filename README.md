@@ -24,7 +24,7 @@ php ../vendor/bin/phpunit .
 ```
 
 ## Como funciona 
-A api é basicamente composta por duas partes uma que consome os dados da Caixa e outro que fornece estes dados.
+A api é basicamente composta por duas partes, uma que consome os dados da Caixa e outro que fornece estes dados.
 
 - - -
 
@@ -36,7 +36,7 @@ A api é basicamente composta por duas partes uma que consome os dados da Caixa 
 
 ###Consumer
 
-Esta parte é executa por um script em ```cli/console```.
+Esta parte é executada por um script em ```cli/console```.
 
 1. Baixa os dados da loteria através das urls em ```etc/datasource.ini```.
 2. Descompacta o arquivo.
@@ -46,7 +46,7 @@ Obs: os algoritmos que parseiam os dados estão em classes que implementam a int
 
 ###Provider
 
-1. Recebe a requisição atraves de rotas definidas.
+1. Recebe a requisição através de rotas definidas.
 2. Consome o xml com os dados.
 3. Entrega os dados para o usuário em json.
 
