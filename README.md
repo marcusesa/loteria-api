@@ -28,12 +28,6 @@ A api é basicamente composta por duas partes, uma que consome os dados da Caixa
 
 - - -
 
-<img src="https://raw.github.com/marcusesa/loteria-api/master/fluxoapi.png"
-    alt="Fluxo API"
-    align="right"
-    vspace="60px"
-    />
-
 ###Consumer
 
 Esta parte é executada por um script em ```cli/console```.
