@@ -36,7 +36,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('LoteriaApi\Config', $instance);        
     }
     
-    public function testGetDataShouldReturnAnArray(){
+    public function testGetDataShouldReturnAValidArray(){
         $config = $this->config->setApiPath(API_PATH)
             ->setDirectory('etc')
             ->setExt('ini');
