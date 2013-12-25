@@ -33,31 +33,21 @@ class DownloadTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('LoteriaApi\Consumer\Download', $instance);
     }
     
-    public function testRunShouldDownloadFiles() {
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-           ->will($this->returnValue([
+    public function testRunShouldDownloadFilesOfMegasena() {
+        $datasources = [
             'megasena' => [
                 'name' => 'Mega-Sena',
                 'url' => 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip',
                 'zip' => 'megasena.zip'
             ]
-        ]));
+        ];
 
-        $datasources = $config->getData();
-
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-           ->will($this->returnValue([
+        $paths = [
             'path' => [
                 'zip' => API_PATH . 'var' . DS . '_test' . DS . 'zip' . DS
             ]
-        ]));
+        ];
 
-        $paths = $config->getData();
-        
         $this->download
             ->setComponent(new Downloader)
             ->setDataSource($datasources)

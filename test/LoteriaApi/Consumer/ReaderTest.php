@@ -26,7 +26,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('LoteriaApi\Consumer\Reader', $instance);
     }
     
-    public function testGetDataShouldReturnArrayExpectForMegasena(){
+    public function testGetDataShouldReturnArrayExpectOfMegasena(){
         $dataExpect = [
             'megasena' => [
                 // primeiro concurso
@@ -64,28 +64,18 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
             ]
         ];
         
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-           ->will($this->returnValue([
+        $datasources = [
             'megasena' => [
                 'html' => 'test_D_MEGA.HTM',
                 'reader' => 'LoteriaApi\Consumer\Reader\Megasena',
             ]
-        ]));
-
-        $datasources = $config->getData();
+        ];
         
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-           ->will($this->returnValue([
+        $paths = [
             'path' => [
                 'ext' => API_PATH . 'var' . DS . '_test' . DS . 'ext' . DS,
             ]
-        ]));
-
-        $paths = $config->getData();
+        ];
         
         $data = $this->reader
             ->setDataSource($datasources)

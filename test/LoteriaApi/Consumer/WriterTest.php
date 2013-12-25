@@ -31,28 +31,18 @@ class WriterTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('LoteriaApi\Consumer\Writer', $instance);
     }
     
-    public function testRunShouldCreateXmlForMegasena() {
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-           ->will($this->returnValue([
+    public function testRunShouldCreateXmlOfMegasena() {
+        $datasources = [
             'megasena' => [
                 'xml' => 'megasena.xml'
             ]
-        ]));
+        ];
 
-        $datasources = $config->getData();
-
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-           ->will($this->returnValue([
+        $paths = [
             'path' => [
                 'xml' => API_PATH . 'var' . DS . '_test' . DS . 'xml' . DS
             ]
-        ]));
-
-        $paths = $config->getData();
+        ];
         
         $data = [
             'megasena' => [

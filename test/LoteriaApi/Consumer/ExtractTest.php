@@ -33,32 +33,22 @@ class ExtractTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('LoteriaApi\Consumer\Extract', $instance);
     }
     
-    public function testRunShouldExtractFiles(){
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-           ->will($this->returnValue([
+    public function testRunShouldExtractFilesOfMegasena(){
+        $datasources = [
             'megasena' => [
                 'name' => 'Mega-Sena',
                 'zip' => 'test_megasena.zip',
                 'html' => 'D_MEGA.HTM',
                 'gif' => 'T2.GIF',
             ]
-        ]));
+        ];
 
-        $datasources = $config->getData();
-
-        $config = $this->getMock('\LoteriaApi\Config', ['getData']);
-        $config->expects($this->any())
-            ->method('getData')
-           ->will($this->returnValue([
+        $paths = [
             'path' => [
                 'zip' => API_PATH . 'var' . DS . '_test' . DS . 'zip' . DS,
                 'ext' => API_PATH . 'var' . DS . '_test' . DS . 'ext' . DS,
             ]
-        ]));
-
-        $paths = $config->getData();
+        ];
         
         $this->extract
             ->setComponent(new Unzip)
