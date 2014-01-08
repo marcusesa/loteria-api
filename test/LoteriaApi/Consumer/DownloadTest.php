@@ -58,4 +58,31 @@ class DownloadTest extends \PHPUnit_Framework_TestCase {
         $this->assertFileExists($file);
         unlink($file);
     }
+    
+    public function testRunShouldDownloadFilesOfLotofacil() {
+        $datasources = [
+            'lotofacil' => [
+                'name'    => "Lotofácil",
+                'url'     => "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_lotfac.zip",
+                'zip'     => "lotofacil.zip"
+            ]   
+         ];
+
+        $paths = [
+            'path' => [
+                'zip' => API_PATH . 'var' . DS . '_test' . DS . 'zip' . DS
+            ]
+        ];
+
+        $this->download
+            ->setComponent(new Downloader)
+            ->setDataSource($datasources)
+            ->setLocalStorage($paths['path']['zip'])    
+            ->run();
+        
+        $file = $paths['path']['zip'].$datasources['lotofacil']['zip'];
+        $this->assertFileExists($file);
+        unlink($file);
+    }
+
 }
