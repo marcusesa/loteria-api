@@ -47,13 +47,22 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue(is_array($datasource));
         $this->assertEquals([
             'megasena' => [
-                'name' => 'Mega-Sena',
-                'url' => 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip',
-                'zip' => 'megasena.zip',
-                'html' => 'D_MEGA.HTM',
-                'gif' => 'T2.GIF',
+                'name'   => 'Mega-Sena',
+                'url'    => 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip',
+                'zip'    => 'megasena.zip',
+                'html'   => 'D_MEGA.HTM',
+                'gif'    => 'T2.GIF',
                 'reader' => 'LoteriaApi\Consumer\Reader\Megasena',
-                'xml' => 'megasena.xml',
+                'xml'    => 'megasena.xml',
+            ],
+            'lotofacil' => [
+                'name'    => "Lotofácil",
+                'url'     => "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_lotfac.zip",
+                'zip'     => "lotofacil.zip",
+                'html'    => "D_LOTFAC.HTM",
+                'gif'     => "LOTFACIL.GIF",
+                'xml'     => "lotofacil.xml",
+                'reader'  => "LoteriaApi\Consumer\Reader\Lotofacil",
             ]
         ], $datasource);
         
