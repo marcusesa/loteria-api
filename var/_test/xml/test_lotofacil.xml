@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<concursos>
+  <concurso numero="1">
+    <data>29/09/2003</data>
+    <dezenas>
+      <dezena>18</dezena>
+      <dezena>20</dezena>
+      <dezena>25</dezena>
+      <dezena>23</dezena>
+      <dezena>10</dezena>
+      <dezena>11</dezena>
+      <dezena>24</dezena>
+      <dezena>14</dezena>
+      <dezena>06</dezena>
+      <dezena>02</dezena>
+      <dezena>13</dezena>
+      <dezena>09</dezena>
+      <dezena>05</dezena>
+      <dezena>16</dezena>
+      <dezena>03</dezena>
+    </dezenas>
+    <arrecadacao>0,00</arrecadacao>
+    <total_ganhadores>5</total_ganhadores>
+    <acumulado>N&#xC3;O</acumulado>
+    <valor_acumulado>0,00</valor_acumulado>
+  </concurso>
+  <concurso numero="992">
+    <data>09/12/2013</data>
+    <dezenas>
+      <dezena>05</dezena>
+      <dezena>17</dezena>
+      <dezena>08</dezena>
+      <dezena>24</dezena>
+      <dezena>20</dezena>
+      <dezena>15</dezena>
+      <dezena>11</dezena>
+      <dezena>13</dezena>
+      <dezena>09</dezena>
+      <dezena>03</dezena>
+      <dezena>19</dezena>
+      <dezena>01</dezena>
+      <dezena>07</dezena>
+      <dezena>04</dezena>
+      <dezena>10</dezena>
+    </dezenas>
+    <arrecadacao>19.036.316,25</arrecadacao>
+    <total_ganhadores>3</total_ganhadores>
+    <acumulado>N&#xC3;O</acumulado>
+    <valor_acumulado>0,00</valor_acumulado>
+  </concurso>
+</concursos>
