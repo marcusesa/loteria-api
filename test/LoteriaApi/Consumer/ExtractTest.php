@@ -95,4 +95,66 @@ class ExtractTest extends \PHPUnit_Framework_TestCase {
         unlink($gif);
     }
 
+    public function testRunShouldExtractFilesOfQuina(){
+        $datasources = [
+            'quina' => [
+                'name'    => "Quina",
+                'zip'     => "test_quina.zip",
+                'html'    => "D_QUINA.HTM",
+                'gif'     => "T7.GIF",
+            ]
+        ];
+
+        $paths = [
+            'path' => [
+                'zip' => API_PATH . 'var' . DS . '_test' . DS . 'zip' . DS,
+                'ext' => API_PATH . 'var' . DS . '_test' . DS . 'ext' . DS,
+            ]
+        ];
+        
+        $this->extract
+            ->setComponent(new Unzip)
+            ->setDataSource($datasources)
+            ->setPathsStorage($paths)    
+            ->run();
+        
+        $html = $paths['path']['ext'].$datasources['quina']['html'];
+        $this->assertFileExists($html);        
+        
+        unlink($html);
+        $gif = $paths['path']['ext'].$datasources['quina']['gif'];
+        unlink($gif);
+    }
+
+    public function testRunShouldExtractFilesOfLotomania(){
+        $datasources = [
+            'lotomania' => [
+                'name'    => "Lotomania",
+                'zip'     => "test_lotomania.zip",
+                'html'    => "D_LOTMAN.HTM",
+                'gif'     => "T11.GIF",
+            ]
+        ];
+
+        $paths = [
+            'path' => [
+                'zip' => API_PATH . 'var' . DS . '_test' . DS . 'zip' . DS,
+                'ext' => API_PATH . 'var' . DS . '_test' . DS . 'ext' . DS,
+            ]
+        ];
+        
+        $this->extract
+            ->setComponent(new Unzip)
+            ->setDataSource($datasources)
+            ->setPathsStorage($paths)    
+            ->run();
+        
+        $html = $paths['path']['ext'].$datasources['lotomania']['html'];
+        $this->assertFileExists($html);        
+        
+        unlink($html);
+        $gif = $paths['path']['ext'].$datasources['lotomania']['gif'];
+        unlink($gif);
+    }
+
 }
