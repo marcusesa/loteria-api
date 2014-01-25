@@ -63,6 +63,24 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
                 'gif'     => "LOTFACIL.GIF",
                 'xml'     => "lotofacil.xml",
                 'reader'  => "LoteriaApi\Consumer\Reader\Lotofacil",
+            ],
+            'quina' => [
+                'name'    => "Quina",
+                'url'     => "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_quina.zip",
+                'zip'     => "quina.zip",
+                'html'    => "D_QUINA.HTM",
+                'gif'     => "T7.GIF",
+                'xml'     => "quina.xml",
+                'reader'  => "LoteriaApi\Consumer\Reader\Quina",
+            ],
+            'lotomania' => [
+                'name'    => "Lotomania",
+                'url'     => "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_lotoma.zip",
+                'zip'     => "lotomania.zip",
+                'html'    => "D_LOTMAN.HTM",
+                'gif'     => "T11.GIF",
+                'xml'     => "lotomania.xml",
+                'reader'  => "LoteriaApi\Consumer\Reader\Lotomania",
             ]
         ], $datasource);
         
