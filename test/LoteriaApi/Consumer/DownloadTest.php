@@ -84,5 +84,56 @@ class DownloadTest extends \PHPUnit_Framework_TestCase {
         $this->assertFileExists($file);
         unlink($file);
     }
+    
+    public function testRunShouldDownloadFilesOfQuina() {
+        $datasources = [
+            'quina' => [
+                'name'    => "Quina",
+                'url'     => "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_quina.zip",
+                'zip'     => "quina.zip"
+            ]   
+         ];
 
+        $paths = [
+            'path' => [
+                'zip' => API_PATH . 'var' . DS . '_test' . DS . 'zip' . DS
+            ]
+        ];
+
+        $this->download
+            ->setComponent(new Downloader)
+            ->setDataSource($datasources)
+            ->setLocalStorage($paths['path']['zip'])    
+            ->run();
+        
+        $file = $paths['path']['zip'].$datasources['quina']['zip'];
+        $this->assertFileExists($file);
+        unlink($file);
+    }
+
+    public function testRunShouldDownloadFilesOfLotomania() {
+        $datasources = [
+            'lotomania' => [
+                'name'    => "Lotomania",
+                'url'     => "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_lotoma.zip",
+                'zip'     => "lotomania.zip"
+            ]   
+         ];
+
+        $paths = [
+            'path' => [
+                'zip' => API_PATH . 'var' . DS . '_test' . DS . 'zip' . DS
+            ]
+        ];
+
+        $this->download
+            ->setComponent(new Downloader)
+            ->setDataSource($datasources)
+            ->setLocalStorage($paths['path']['zip'])    
+            ->run();
+        
+        $file = $paths['path']['zip'].$datasources['lotomania']['zip'];
+        $this->assertFileExists($file);
+        unlink($file);
+    }
 }
