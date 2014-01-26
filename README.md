@@ -30,7 +30,7 @@ A api é basicamente composta por duas partes, uma que consome os dados da Caixa
 
 ###Consumer
 
-Esta parte é executada por um script em ```cli/console```.
+Esta parte é executada por um script em ```bin/console```.
 
 1. Baixa os dados da loteria através das urls em ```etc/datasource.ini```.
 2. Descompacta o arquivo.
