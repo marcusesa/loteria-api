@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<concursos>
+  <concurso numero="1">
+    <data>13/03/1994</data>
+    <dezenas>
+      <dezena>25</dezena>
+      <dezena>45</dezena>
+      <dezena>60</dezena>
+      <dezena>76</dezena>
+      <dezena>79</dezena>
+    </dezenas>
+    <arrecadacao>0,00</arrecadacao>
+    <total_ganhadores>3</total_ganhadores>
+    <acumulado>N&#xC3;O</acumulado>
+    <valor_acumulado>0,00</valor_acumulado>
+  </concurso>
+  <concurso numero="3399">
+    <data>24/01/2014</data>
+    <dezenas>
+      <dezena>55</dezena>
+      <dezena>75</dezena>
+      <dezena>42</dezena>
+      <dezena>23</dezena>
+      <dezena>64</dezena>
+    </dezenas>
+    <arrecadacao>5.909.673,75</arrecadacao>
+    <total_ganhadores>0</total_ganhadores>
+    <acumulado>SIM</acumulado>
+    <valor_acumulado>1.170.673,89</valor_acumulado>
+  </concurso>
+</concursos>
