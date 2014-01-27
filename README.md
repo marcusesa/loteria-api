@@ -19,8 +19,7 @@ php composer.phar install
 
 Execute os testes.
 ```
-cd test
-php ../vendor/bin/phpunit .
+vendor/bin/phpunit
 ```
 
 ## Como funciona 
