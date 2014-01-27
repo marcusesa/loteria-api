@@ -1,10 +1,15 @@
-<phpunit bootstrap="../bootstrap.php"
+<phpunit bootstrap="bootstrap.php"
          colors="true">
     <filter>
         <whitelist>
-            <directory>../src/LoteriaApi</directory>
+            <directory>./src/LoteriaApi</directory>
         </whitelist>
     </filter>
+    <testsuites>
+        <testsuite name = "Loteria-api">
+            <directory>./test</directory>
+        </testsuite>
+    </testsuites>
     <logging>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
         <log type="testdox-text" target="php://stdout" />
