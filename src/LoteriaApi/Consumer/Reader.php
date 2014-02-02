@@ -22,7 +22,8 @@ class Reader {
         $data = [];
         foreach ($this->datasource as $concursoName => $concursoData) {
             $file = $this->paths['path']['ext'].$concursoData['html'];
-            $doc = DOMDocument::loadHTMLFile($file);
+			$doc = new DOMDocument();
+			$doc->loadHTMLFile($file);
             $data[$concursoName] = (new $concursoData['reader'])
                 ->setDOMDocument($doc)
                 ->getData();
