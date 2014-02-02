@@ -4,17 +4,22 @@ Este projeto tem como objetivo fornecer dados da loteria da Caixa Econômica Fed
 
 ## Instalação
 ##### Ambiente 
-* Apache >= 2.2.16
+* Apache = 2.2
 * PHP >= 5.4
 
-##### *Vagrant 
-Com vagrant você pode subir o ambiente com apenas um vagrant up.
-Veja mais em [aqui](http://www.vagrantup.com/).
+##### Vagrant 
+Com vagrant você pode subir o ambiente com apenas um vagrant up. Veja mais [aqui](http://www.vagrantup.com/).
 
 ##### Setup
+
+Baixe o projeto. 
+```
+git clone git@github.com:marcusesa/loteria-api.git
+```
+
 Baixe o vendor via composer. 
 ```
-php composer.phar install
+php composer.phar install --dev
 ```
 
 Execute os testes.
