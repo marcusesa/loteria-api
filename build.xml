@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="loteria-api" basedir="." default="build">
-	<property name="dir-reports" value="./var/_reports" />
-	<property name="dir-datasources-ext" value="./var/ext" />
-	<property name="dir-datasources-xml" value="./var/xml" />
-	<property name="dir-datasources-zip" value="./var/zip" />
-	<property name="dir-vendor" value="./vendor" />
+    <property name="dir-reports" value="./var/_reports" />
+    <property name="dir-datasources-ext" value="./var/ext" />
+    <property name="dir-datasources-xml" value="./var/xml" />
+    <property name="dir-datasources-zip" value="./var/zip" />
+    <property name="dir-vendor" value="./vendor" />
 
 
-	<!-- ======================== -->
+    <!-- ======================== -->
     <!-- = (Default) Build Task = -->
     <!-- ======================== -->
     <target name="build">
@@ -57,7 +57,7 @@
         <exec command="vendor/bin/phpunit" logoutput="true" escape="false" />
     </target>
 
-	<!-- ==================== -->
+    <!-- ==================== -->
     <!-- = Load Datasources = -->
     <!-- ==================== -->
     <target name="load-datasources">
