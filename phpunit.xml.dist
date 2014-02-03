@@ -1,5 +1,6 @@
-<phpunit bootstrap="bootstrap.php"
-         colors="true">
+<phpunit colors="true"
+         verbose="true"
+         bootstrap="bootstrap.php">
     <filter>
         <whitelist>
             <directory>./src/LoteriaApi</directory>
@@ -11,7 +12,7 @@
         </testsuite>
     </testsuites>
     <logging>
-        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-        <log type="testdox-text" target="php://stdout" />
+        <log type="coverage-html" target="./var/_reports" charset="UTF-8" highlight="false" lowUpperBound="35" highLowerBound="70"/>
+        <log type="testdox-text" target="./var/_reports/testdox.txt" />
     </logging>
 </phpunit>
