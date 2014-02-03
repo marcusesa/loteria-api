@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="loteria-api" basedir="." default="build">
+	<property name="dir-reports" value="./var/_reports" />
+	<property name="dir-datasources-ext" value="./var/ext" />
+	<property name="dir-datasources-xml" value="./var/xml" />
+	<property name="dir-datasources-zip" value="./var/zip" />
+	<property name="dir-vendor" value="./vendor" />
+
+
+	<!-- ======================== -->
+    <!-- = (Default) Build Task = -->
+    <!-- ======================== -->
+    <target name="build">
+        <phingcall target="clean"></phingcall>
+        <phingcall target="structure"></phingcall>
+        <phingcall target="composer"></phingcall>
+        <phingcall target="phpunit"></phingcall>
+        <phingcall target="load-datasources"></phingcall>
+    </target>
+
+    <!-- ============== -->
+    <!-- = Clean Task = -->
+    <!-- ============== -->
+    <target name="clean">
+        <echo msg="Cleaning build directories ..." />
+        <delete dir="${dir-reports}" quiet="true" />
+        <delete dir="${dir-datasources-ext}" quiet="true" />
+        <delete dir="${dir-datasources-xml}" quiet="true" />
+        <delete dir="${dir-datasources-zip}" quiet="true" />
+        <delete dir="${dir-vendor}" />
+    </target>
+
+    <!-- ================== -->
+    <!-- = Structure Task = -->
+    <!-- ================== -->
+    <target name="structure">
+        <echo msg="Creating structure ..." />
+        <mkdir dir="${dir-reports}" />
+        <mkdir dir="${dir-datasources-ext}" />
+        <mkdir dir="${dir-datasources-xml}" />
+        <mkdir dir="${dir-datasources-zip}" />
+    </target>
+
+    <!-- ============ -->
+    <!-- = Composer = -->
+    <!-- ============ -->
+    <target name="composer">
+        <echo msg="Running composer install ..." />
+        <exec command="php composer.phar install --dev" logoutput="true" escape="false" />
+    </target>
+
+    <!-- ================ -->
+    <!-- = PHPUnit Task = -->
+    <!-- ================ -->
+    <target name="phpunit">
+        <echo msg="Running unit tests ..." />
+        <exec command="vendor/bin/phpunit" logoutput="true" escape="false" />
+    </target>
+
+	<!-- ==================== -->
+    <!-- = Load Datasources = -->
+    <!-- ==================== -->
+    <target name="load-datasources">
+        <echo msg="Load Datasources ..." />
+        <exec command="bin/console" />
+    </target>
+
+</project>
