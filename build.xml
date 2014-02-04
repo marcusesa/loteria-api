@@ -66,9 +66,8 @@
     <!-- ==================== -->
     <target name="load-datasources">
         <echo msg="Load Datasources ..." />
-        <exec command="bin/console" />
+        <exec command="bin/consumer" logoutput="true" />
     </target>
-
 
     <!-- ================================= -->
     <!-- = Based in the project Manowars = -->
