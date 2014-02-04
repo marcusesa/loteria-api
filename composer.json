@@ -15,7 +15,6 @@
         "vipsoft/unzip": "dev-master"
     },
     "require-dev": {
-        "phing/phing": "*",
         "phpunit/phpunit": "3.7@stable"
     },
     "autoload": {
