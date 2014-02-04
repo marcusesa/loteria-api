@@ -27,7 +27,9 @@
         <delete dir="${dir-datasources-ext}" quiet="true" />
         <delete dir="${dir-datasources-xml}" quiet="true" />
         <delete dir="${dir-datasources-zip}" quiet="true" />
-        <delete dir="${dir-vendor}" />
+        <delete dir="${dir-vendor}" quiet="true" />
+        <delete file="./composer.lock" quiet="true" />
+        <delete file="./composer.phar" quiet="true" />
     </target>
 
     <!-- ================== -->
@@ -45,6 +47,8 @@
     <!-- = Composer = -->
     <!-- ============ -->
     <target name="composer">
+        <echo msg="Download composer ..." />
+        <exec command="wget 'https://getcomposer.org/composer.phar'" />
         <echo msg="Running composer install ..." />
         <exec command="php composer.phar install --dev" logoutput="true" escape="false" />
     </target>
@@ -65,4 +69,8 @@
         <exec command="bin/console" />
     </target>
 
+
+    <!-- ================================= -->
+    <!-- = Based in the project Manowars = -->
+    <!-- ================================= -->
 </project>
