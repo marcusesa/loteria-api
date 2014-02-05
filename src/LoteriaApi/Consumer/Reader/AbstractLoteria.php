@@ -6,7 +6,7 @@ use \DOMDocument;
 
 abstract class AbstractLoteria implements IReader
 {
-	protected $domdocument;
+    protected $domdocument;
 
     public function setDOMDocument(DOMDocument $domdocument)
     {
