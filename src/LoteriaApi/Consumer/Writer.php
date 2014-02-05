@@ -2,27 +2,32 @@
 
 namespace LoteriaApi\Consumer;
 
-class Writer {
+class Writer
+{
     private $datasource;
     private $localstorage;
     private $data;
     
-    public function setDataSource(array $datasource) {
+    public function setDataSource(array $datasource)
+    {
         $this->datasource = $datasource;
         return $this;
     }
     
-    public function setLocalStorage($localstorage) {
+    public function setLocalStorage($localstorage)
+    {
         $this->localstorage = $localstorage;
         return $this;
     }
     
-    public function setData(array $data) {
+    public function setData(array $data)
+    {
         $this->data = $data;
         return $this;
     }
     
-    public function run(){
+    public function run()
+    {
         foreach ($this->datasource as $concursoName => $concurso) {
             
             $xml = new \SimpleXMLElement('<concursos/>');
@@ -32,7 +37,7 @@ class Writer {
                 $concursoXml->addAttribute('numero', $nrconcurso);
                 $concursoXml->addChild('data', $concursoData['data']);
                 $dezenas = $concursoXml->addChild('dezenas');
-                foreach ($concursoData['dezenas'] as $dezena){
+                foreach ($concursoData['dezenas'] as $dezena) {
                     $dezenas->addChild('dezena', $dezena);
                 }
                 $concursoXml->addChild('arrecadacao', $concursoData['arrecadacao']);
@@ -50,5 +55,4 @@ class Writer {
             $dom->save($filename);
         }
     }
-    
 }

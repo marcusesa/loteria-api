@@ -4,15 +4,18 @@ namespace LoteriaApi\Consumer\Reader;
 
 use \DOMDocument;
 
-class Lotomania implements IReader {
+class Lotomania implements IReader
+{
     private $domdocument;
     
-    public function setDOMDocument(DOMDocument $domdocument){
+    public function setDOMDocument(DOMDocument $domdocument)
+    {
         $this->domdocument = $domdocument;
         return $this;
     }
     
-    public function getData(){
+    public function getData()
+    {
         $data = [];
         
         $table = $this->domdocument->getElementsByTagName('table')->item(0);

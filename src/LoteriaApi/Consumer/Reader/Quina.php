@@ -4,15 +4,18 @@ namespace LoteriaApi\Consumer\Reader;
 
 use \DOMDocument;
 
-class Quina implements IReader {
+class Quina implements IReader
+{
     private $domdocument;
     
-    public function setDOMDocument(DOMDocument $domdocument){
+    public function setDOMDocument(DOMDocument $domdocument)
+    {
         $this->domdocument = $domdocument;
         return $this;
     }
     
-    public function getData(){
+    public function getData()
+    {
         $data = [];
         
         $table = $this->domdocument->getElementsByTagName('table')->item(0);
@@ -37,7 +40,7 @@ class Quina implements IReader {
                 'acumulado' => $tds->item(14)->nodeValue,
                 'valor_acumulado' => $tds->item(15)->nodeValue,
             ];
-        }            
+        }
         return $data;
     }
 }

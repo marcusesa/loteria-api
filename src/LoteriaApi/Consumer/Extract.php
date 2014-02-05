@@ -4,27 +4,32 @@ namespace LoteriaApi\Consumer;
 
 use VIPSoft\Unzip\Unzip;
 
-class Extract {
+class Extract
+{
     private $component;
     private $datasource;
-    private $paths;    
+    private $paths;
     
-    public function setComponent(Unzip $component){
+    public function setComponent(Unzip $component)
+    {
         $this->component = $component;
         return $this;
     }
     
-    public function setDataSource(array $datasource) {
+    public function setDataSource(array $datasource)
+    {
         $this->datasource = $datasource;
         return $this;
     }
 
-    public function setPathsStorage($paths) {
+    public function setPathsStorage($paths)
+    {
         $this->paths = $paths;
         return $this;
     }
     
-    public function run(){
+    public function run()
+    {
         foreach ($this->datasource as $concurso) {
             $this->component->extract(
                 $this->paths['path']['zip'] . DS . $concurso['zip'],
@@ -32,5 +37,4 @@ class Extract {
             );
         }
     }
-
 }

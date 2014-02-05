@@ -4,15 +4,18 @@ namespace LoteriaApi\Consumer\Reader;
 
 use \DOMDocument;
 
-class Megasena implements IReader {
+class Megasena implements IReader
+{
     private $domdocument;
     
-    public function setDOMDocument(DOMDocument $domdocument){
+    public function setDOMDocument(DOMDocument $domdocument)
+    {
         $this->domdocument = $domdocument;
         return $this;
     }
     
-    public function getData(){
+    public function getData()
+    {
         $data = [];
         
         $table = $this->domdocument->getElementsByTagName('table')->item(0);
@@ -38,7 +41,7 @@ class Megasena implements IReader {
                 'acumulado' => $tds->item(15)->nodeValue,
                 'valor_acumulado' => $tds->item(16)->nodeValue,
             ];
-        }            
+        }
         return $data;
     }
 }
