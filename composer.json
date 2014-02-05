@@ -15,6 +15,11 @@
         "vipsoft/unzip": "dev-master"
     },
     "require-dev": {
+        "pdepend/pdepend": "*",
+        "sebastian/phpcpd": "*",
+        "phpmd/phpmd": "*",
+        "phploc/phploc": "*",
+        "squizlabs/php_codesniffer": "*",
         "phpunit/phpunit": "3.7@stable"
     },
     "autoload": {
