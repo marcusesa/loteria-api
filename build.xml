@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="loteria-api" basedir="." default="build">
     <property name="dir-reports" value="./var/_reports" />
+    <property name="dir-source" value="./src" />
     <property name="dir-datasources-ext" value="./var/ext" />
     <property name="dir-datasources-xml" value="./var/xml" />
     <property name="dir-datasources-zip" value="./var/zip" />
@@ -15,6 +16,7 @@
         <phingcall target="structure"></phingcall>
         <phingcall target="composer"></phingcall>
         <phingcall target="phpunit"></phingcall>
+        <phingcall target="metrics"></phingcall>
         <phingcall target="load-datasources"></phingcall>
     </target>
 
@@ -59,6 +61,29 @@
     <target name="phpunit">
         <echo msg="Running unit tests ..." />
         <exec command="vendor/bin/phpunit" logoutput="true" escape="false" />
+    </target>
+
+    <!-- ================ -->
+    <!-- = Metrics Task = -->
+    <!-- ================ -->
+    <target name="metrics">
+        <echo msg="Running metrics tools ..." />
+        
+        <echo msg="# PHPCPD ..." />
+        <exec command="vendor/bin/phpcpd --log-pmd ${dir-reports}/cpd.xml ${dir-source}" logoutput="true" escape="false" />
+        
+        <echo msg="# PDepend ..." />
+        <exec command="vendor/bin/pdepend -d memory_limit=1G --jdepend-xml=${dir-reports}/jdepend.xml --summary-xml=${dir-reports}/jdepend-summary.xml --jdepend-chart=${dir-reports}/jdepend.svg --overview-pyramid=${dir-reports}/jdepend-pyramid.svg ${dir-source}" logoutput="true" escape="false" />
+        
+        <echo msg="# PHP Code Sniffer ..." />
+        <exec command="vendor/bin/phpcs --standard=PSR2 -p -s --report-full=${dir-reports}/codesniffer-full.txt --report-summary=${dir-reports}/codesniffer-summary.txt --report-xml=${dir-reports}/codesniffer.xml --report-checkstyle=${dir-reports}/codesniffer-checkstyle.xml --report-gitblame=${dir-reports}/codesniffer-gitblame.txt ${dir-source}" logoutput="true" escape="false" />
+        
+        <echo msg="# PHP Mess Detector ..." />
+        <exec command="vendor/bin/phpmd ${dir-source} text cleancode,codesize,controversial,design,naming,unusedcode --reportfile ${dir-reports}/phpmd.txt" logoutput="true" escape="false" />
+
+        <echo msg="# PHP Loc ..." />
+        <exec command="vendor/bin/phploc --progress --log-xml=${dir-reports}/phploc.xml ${dir-source}" logoutput="true" escape="false" />
+
     </target>
 
     <!-- ==================== -->
