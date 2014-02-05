@@ -2,18 +2,8 @@
 
 namespace LoteriaApi\Consumer\Reader;
 
-use \DOMDocument;
-
-class Quina implements IReader
+class Quina extends AbstractLoteria
 {
-    private $domdocument;
-    
-    public function setDOMDocument(DOMDocument $domdocument)
-    {
-        $this->domdocument = $domdocument;
-        return $this;
-    }
-    
     public function getData()
     {
         $data = [];
