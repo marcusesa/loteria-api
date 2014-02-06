@@ -2,35 +2,19 @@
 
 namespace LoteriaApi\Consumer\Reader;
 
-class Quina extends AbstractLoteria
+class Quina extends AbstractReaderHtmlLoteria
 {
     public function getData()
     {
-        $data = [];
-        
-        $table = $this->domdocument->getElementsByTagName('table')->item(0);
-        $trs = $table->getElementsByTagName('tr');
+        $this->numbersNode->setNumberConcurso(0)
+            ->setDataConcurso(1)
+            ->setDezenasConcurso([2, 3, 4, 5, 6])
+            ->setArrecadacaoConcurso(7)
+            ->setTotalGanhadoresConcurso(8)
+            ->setValorAcumuladoConcurso(15);
 
-        for ($concursoHtml = 1; $concursoHtml < $trs->length; $concursoHtml++) {
-            $tds = $trs->item($concursoHtml)->getElementsByTagName('td');
-            
-            $nrconcurso = $tds->item(0)->nodeValue;
+        parent::loadData($this->numbersNode);
 
-            $data[$nrconcurso] = [
-                'data' => $tds->item(1)->nodeValue,
-                'dezenas' => [
-                    0 => $tds->item(2)->nodeValue,
-                    1 => $tds->item(3)->nodeValue,
-                    2 => $tds->item(4)->nodeValue,
-                    3 => $tds->item(5)->nodeValue,
-                    4 => $tds->item(6)->nodeValue,
-                ],
-                'arrecadacao' => $tds->item(7)->nodeValue,
-                'total_ganhadores' => $tds->item(8)->nodeValue,
-                'acumulado' => $tds->item(14)->nodeValue,
-                'valor_acumulado' => $tds->item(15)->nodeValue,
-            ];
-        }
-        return $data;
+        return $this->data;
     }
 }

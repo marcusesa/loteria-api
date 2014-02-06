@@ -2,45 +2,19 @@
 
 namespace LoteriaApi\Consumer\Reader;
 
-class Lotofacil extends AbstractLoteria
+class Lotofacil extends AbstractReaderHtmlLoteria
 {
     public function getData()
     {
-        $data = [];
-        
-        $table = $this->domdocument->getElementsByTagName('table')->item(0);
-        $trs = $table->getElementsByTagName('tr');
+        $this->numbersNode->setNumberConcurso(0)
+            ->setDataConcurso(1)
+            ->setDezenasConcurso([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
+            ->setArrecadacaoConcurso(17)
+            ->setTotalGanhadoresConcurso(18)
+            ->setValorAcumuladoConcurso(28);
 
-        for ($concursoHtml = 1; $concursoHtml < $trs->length; $concursoHtml++) {
-            $tds = $trs->item($concursoHtml)->getElementsByTagName('td');
-            
-            $nrconcurso = $tds->item(0)->nodeValue;
+        parent::loadData($this->numbersNode);
 
-            $data[$nrconcurso] = [
-                'data' => $tds->item(1)->nodeValue,
-                'dezenas' => [
-                    0 => $tds->item(2)->nodeValue,
-                    1 => $tds->item(3)->nodeValue,
-                    2 => $tds->item(4)->nodeValue,
-                    3 => $tds->item(5)->nodeValue,
-                    4 => $tds->item(6)->nodeValue,
-                    5 => $tds->item(7)->nodeValue,
-                    6 => $tds->item(8)->nodeValue,
-                    7 => $tds->item(9)->nodeValue,
-                    8 => $tds->item(10)->nodeValue,
-                    9 => $tds->item(11)->nodeValue,
-                    10 => $tds->item(12)->nodeValue,
-                    11 => $tds->item(13)->nodeValue,
-                    12 => $tds->item(14)->nodeValue,
-                    13 => $tds->item(15)->nodeValue,
-                    14 => $tds->item(16)->nodeValue,
-                ],
-                'arrecadacao' => $tds->item(17)->nodeValue,
-                'total_ganhadores' => $tds->item(18)->nodeValue,
-                'acumulado' => $tds->item(18)->nodeValue === '0' ? 'SIM' : 'NÃO',
-                'valor_acumulado' => $tds->item(28)->nodeValue,
-            ];
-        }
-        return $data;
+        return $this->data;
     }
 }

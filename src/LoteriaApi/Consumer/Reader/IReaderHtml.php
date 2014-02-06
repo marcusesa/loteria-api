@@ -4,7 +4,7 @@ namespace LoteriaApi\Consumer\Reader;
 
 use \DOMDocument;
 
-interface IReader
+interface IReaderHtml
 {
     public function setDOMDocument(DOMDocument $domdocument);
     public function getData();

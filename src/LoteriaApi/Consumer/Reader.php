@@ -3,6 +3,7 @@
 namespace LoteriaApi\Consumer;
 
 use \DOMDocument;
+use LoteriaApi\Consumer\Reader\LoteriaNumbersNode;
 
 class Reader
 {
@@ -30,7 +31,8 @@ class Reader
             $doc->loadHTMLFile($file);
             $data[$concursoName] = (new $concursoData['reader'])
                 ->setDOMDocument($doc)
-                ->getData();
+                ->setNumbersNode(new LoteriaNumbersNode)
+                ->getData(new LoteriaNumbersNode);
         }
         return $data;
     }
