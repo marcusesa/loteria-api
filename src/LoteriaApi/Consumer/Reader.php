@@ -32,7 +32,7 @@ class Reader
             $data[$concursoName] = (new $concursoData['reader'])
                 ->setDOMDocument($doc)
                 ->setNumbersNode(new LoteriaNumbersNode)
-                ->getData(new LoteriaNumbersNode);
+                ->getData();
         }
         return $data;
     }

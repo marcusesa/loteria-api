@@ -52,7 +52,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
                 'zip'    => 'megasena.zip',
                 'html'   => 'D_MEGA.HTM',
                 'gif'    => 'T2.GIF',
-                'reader' => 'LoteriaApi\Consumer\Reader\Megasena',
+                'reader' => 'LoteriaApi\Consumer\Reader\HtmlMegasena',
                 'xml'    => 'megasena.xml',
             ],
             'lotofacil' => [
@@ -62,7 +62,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
                 'html'    => "D_LOTFAC.HTM",
                 'gif'     => "LOTFACIL.GIF",
                 'xml'     => "lotofacil.xml",
-                'reader'  => "LoteriaApi\Consumer\Reader\Lotofacil",
+                'reader'  => "LoteriaApi\Consumer\Reader\HtmlLotofacil",
             ],
             'quina' => [
                 'name'    => "Quina",
@@ -71,7 +71,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
                 'html'    => "D_QUINA.HTM",
                 'gif'     => "T7.GIF",
                 'xml'     => "quina.xml",
-                'reader'  => "LoteriaApi\Consumer\Reader\Quina",
+                'reader'  => "LoteriaApi\Consumer\Reader\HtmlQuina",
             ],
             'lotomania' => [
                 'name'    => "Lotomania",
@@ -80,7 +80,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
                 'html'    => "D_LOTMAN.HTM",
                 'gif'     => "T11.GIF",
                 'xml'     => "lotomania.xml",
-                'reader'  => "LoteriaApi\Consumer\Reader\Lotomania",
+                'reader'  => "LoteriaApi\Consumer\Reader\HtmlLotomania",
             ]
         ], $datasource);
         

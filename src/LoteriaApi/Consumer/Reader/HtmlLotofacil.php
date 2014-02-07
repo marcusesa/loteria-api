@@ -2,7 +2,7 @@
 
 namespace LoteriaApi\Consumer\Reader;
 
-class Lotofacil extends AbstractReaderHtmlLoteria
+class HtmlLotofacil extends AbstractReaderHtmlLoteria
 {
     public function getData()
     {

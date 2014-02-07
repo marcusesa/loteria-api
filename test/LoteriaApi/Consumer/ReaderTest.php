@@ -67,7 +67,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $datasources = [
             'megasena' => [
                 'html' => 'test_D_MEGA.HTM',
-                'reader' => 'LoteriaApi\Consumer\Reader\Megasena',
+                'reader' => 'LoteriaApi\Consumer\Reader\HtmlMegasena',
             ]
         ];
         
@@ -146,7 +146,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $datasources = [
             'lotofacil' => [
                 'html' => 'test_D_LOTFAC.HTM',
-                'reader' => 'LoteriaApi\Consumer\Reader\Lotofacil',
+                'reader' => 'LoteriaApi\Consumer\Reader\HtmlLotofacil',
             ]
         ];
         
@@ -205,7 +205,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $datasources = [
             'quina' => [
                 'html'    => "test_D_QUINA.HTM",
-                'reader'  => "LoteriaApi\Consumer\Reader\Quina",
+                'reader'  => "LoteriaApi\Consumer\Reader\HtmlQuina",
             ]
         ];
         
@@ -294,7 +294,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $datasources = [
             'lotomania' => [
                 'html' => 'test_D_LOTMAN.HTM',
-                'reader' => 'LoteriaApi\Consumer\Reader\Lotomania',
+                'reader' => 'LoteriaApi\Consumer\Reader\HtmlLotomania',
             ]
         ];
         
