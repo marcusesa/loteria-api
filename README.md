@@ -26,13 +26,11 @@ A api é basicamente composta por duas partes, uma que consome os dados da Caixa
 
 ###Consumer
 
-Esta parte é executada por um script em ```bin/console```.
+Esta parte é executada por um script em ```bin/consumer```.
 
 1. Baixa os dados da loteria através das urls em ```etc/datasource.ini```.
 2. Descompacta o arquivo.
 3. Consome o arquivo e parseia-o para um xml amigavel em ```var/xml```.
-
-Obs: os algoritmos que parseiam os dados estão em classes que implementam a interface IReader.
 
 ###Provider
 
