@@ -1,0 +1,7 @@
+language: php
+
+script: php phing.phar
+
+php:
+  - 5.5
+  - 5.4
