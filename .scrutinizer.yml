@@ -1,0 +1,33 @@
+filter:
+    excluded_paths: [vendor/*, web/*]
+    paths: [bootstrap.php, src/*, test/*]
+
+before_commands:
+    - "composer install --prefer-source"
+
+tools:
+    php_cpd:
+        excluded_dirs: [vendor/*, web/*]
+        names:
+            - bootstrap.php
+            - src/*
+            - test/*
+    php_code_coverage: true
+    php_pdepend:
+        excluded_dirs: [vendor/*, web/*]
+    php_code_sniffer:
+        config:
+            standard: PSR2
+    php_loc:
+        enabled: true
+        excluded_dirs: [vendor/*, web/*]
+    php_mess_detector:
+        config:
+            rulesets:
+                - cleancode
+                - codesize
+                - controversial
+                - design
+                - naming
+                - unusedcode
+    php_analyzer: true
