@@ -1,5 +1,7 @@
 #Loteria Api
 
+[![Build Status](https://travis-ci.org/marcusesa/loteria-api.png?branch=master)](https://travis-ci.org/marcusesa/loteria-api)
+
 Este projeto tem como objetivo fornecer dados da loteria da Caixa Econômica Federal através de uma api.
 
 ## Instalação
@@ -9,7 +11,7 @@ Baixe o projeto.
 git clone git@github.com:marcusesa/loteria-api.git
 ```
 
-Execute o build
+Execute o build.
 ```
 php phing.phar
 ```
