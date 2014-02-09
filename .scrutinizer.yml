@@ -16,6 +16,9 @@ tools:
     php_pdepend:
         excluded_dirs: [vendor/*, web/*]
     php_code_sniffer:
+        filter:
+            paths: [src/*]
+            excluded_paths: [vendor/*, web/*, test/*]
         config:
             standard: PSR2
     php_loc:
