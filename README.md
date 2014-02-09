@@ -1,6 +1,8 @@
 #Loteria Api
 
 [![Build Status](https://travis-ci.org/marcusesa/loteria-api.png?branch=master)](https://travis-ci.org/marcusesa/loteria-api)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/marcusesa/loteria-api/badges/quality-score.png?s=e1b10a4f34d1d17e419773f97bda3fc6b0ad1edc)](https://scrutinizer-ci.com/g/marcusesa/loteria-api/)
+[![Code Coverage](https://scrutinizer-ci.com/g/marcusesa/loteria-api/badges/coverage.png?s=e945ef0a17912d654a2e853e04adc9519d816fc6)](https://scrutinizer-ci.com/g/marcusesa/loteria-api/)
 
 Este projeto tem como objetivo fornecer dados da loteria da Caixa Econômica Federal através de uma api.
 
