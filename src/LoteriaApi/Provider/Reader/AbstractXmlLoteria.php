@@ -23,8 +23,9 @@ abstract class AbstractXmlLoteria implements IFinder
     {
         $array = (array) $object;
         array_walk_recursive($array, function (&$value) {
-            if(is_object($value))
-                $value = (array) $value->dezena; 
+            if (is_object($value)) {
+                $value = (array) $value->dezena;
+            }
         });
         return $array;
     }
@@ -34,12 +35,12 @@ abstract class AbstractXmlLoteria implements IFinder
         $concurso = simplexml_load_file($this->filename)
             ->xpath("/concursos/concurso[@numero='{$nrconcurso}']");
 
-        if(isset($concurso[0])){
+        if (isset($concurso[0])) {
             $concurso = $concurso[0]->children();
             $concurso = $this->convertObjectToArrayRecursive($concurso);
         } else {
              throw new \InvalidArgumentException("Concurso does not exist");
-         }
+        }
         return $concurso;
     }
 }
