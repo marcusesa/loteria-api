@@ -25,20 +25,14 @@ class Factory
         switch ($loteria) {
             case 'megasena':
                 return new XmlMegasena($this->config['path'], $this->config['datasource']);
-                break;
             case 'quina':
                 return new XmlQuina($this->config['path'], $this->config['datasource']);
-                break;
             case 'lotofacil':
                 return new XmlLotofacil($this->config['path'], $this->config['datasource']);
-                break;
             case 'lotomania':
                 return new XmlLotomania($this->config['path'], $this->config['datasource']);
-                break;
-            
             default:
                 throw new InvalidArgumentException();
-                break;
         }
     }
 }
