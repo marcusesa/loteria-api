@@ -47,3 +47,7 @@ Esta parte é executada por um script em ```bin/consumer```.
 
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/marcusesa/loteria-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
