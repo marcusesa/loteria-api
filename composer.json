@@ -15,6 +15,7 @@
         "vipsoft/unzip": "dev-master"
     },
     "require-dev": {
+        "symfony/browser-kit": ">=2.3,<2.4-dev",        
         "digitalkaoz/yuml-php":  ">=0.3",
         "pdepend/pdepend": "*",
         "sebastian/phpcpd": "*",
