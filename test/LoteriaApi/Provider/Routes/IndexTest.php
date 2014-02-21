@@ -96,15 +96,4 @@ class IndexTest extends WebTestCase {
         $client->request('GET', '/?loteria=lotofacil&concurso=dontexist');
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
     }
-
-    /**
-
-    --Falta
-    Ok -> Testar o erro da requisição.
-    Testar o sucesso e erro da resposta da requisição (usar arquivos json em var/_test/json para a comparação).
-
-    http://symfony.com/doc/current/book/testing.html#the-test-client
-
-    */
-
 }
