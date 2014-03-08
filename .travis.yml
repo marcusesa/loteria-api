@@ -8,7 +8,6 @@ script: "vendor/bin/phpunit"
 php:
   - 5.4
   - 5.5  
-  - hhvm
 
 branches:
   only:
