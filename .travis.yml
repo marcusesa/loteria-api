@@ -1,8 +1,7 @@
 language: php
 
 before_script:
-    - "composer selfupdate"
-    - "composer install --dev --verbose"
+    - "composer install"
 
 script: "vendor/bin/phpunit"
 
