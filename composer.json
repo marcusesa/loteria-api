@@ -22,7 +22,7 @@
         "phpmd/phpmd": "*",
         "phploc/phploc": "*",
         "squizlabs/php_codesniffer": "*",
-        "phpunit/phpunit": "3.7@stable"
+        "phpunit/phpunit": "4.0.3"
     },
     "autoload": {
         "psr-0": {
