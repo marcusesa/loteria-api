@@ -5,6 +5,7 @@ script: php phing.phar
 php:
   - 5.5
   - 5.4
+  - hhvm
 
 branches:
   only:
