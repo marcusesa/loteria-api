@@ -30,15 +30,31 @@ abstract class AbstractXmlLoteria implements IFinder
         return $array;
     }
 
+    private function getSimpleXml()
+    {
+        return simplexml_load_file($this->filename);
+    }
+
     public function findByConcurso($nrconcurso)
     {
-        $concurso = simplexml_load_file($this->filename)
+        $concurso = $this->getSimpleXml()
             ->xpath("/concursos/concurso[@numero='{$nrconcurso}']");
 
         if (!isset($concurso[0])) {
              throw new \InvalidArgumentException("Concurso does not exist");
         }
         
+        $concurso = $concurso[0]->children();
+        $concurso = $this->convertObjectToArrayRecursive($concurso);
+
+        return $concurso;
+    }
+
+    public function findLastConcurso()
+    {
+        $concurso = $this->getSimpleXml()
+            ->xpath("(/concursos/concurso)[last()]");
+
         $concurso = $concurso[0]->children();
         $concurso = $this->convertObjectToArrayRecursive($concurso);
 
