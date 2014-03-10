@@ -96,4 +96,30 @@ class IndexTest extends WebTestCase {
         $client->request('GET', '/?loteria=lotofacil&concurso=dontexist');
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
     }
+
+    public function testIndexShouldReturnTheLastConcurso() {
+        $client = $this->createClient();
+
+        $pathJsonTest = API_PATH . 'var' . DS . '_test' . DS . 'json' . DS;
+
+        $client->request('GET', '/?loteria=megasena');
+        $this->assertJsonStringEqualsJsonFile(
+            $pathJsonTest.'test_last_megasena.json' , $client->getResponse()->getContent()
+        );
+
+        $client->request('GET', '/?loteria=quina');
+        $this->assertJsonStringEqualsJsonFile(
+            $pathJsonTest.'test_last_quina.json' , $client->getResponse()->getContent()
+        );
+
+        $client->request('GET', '/?loteria=lotofacil');
+        $this->assertJsonStringEqualsJsonFile(
+            $pathJsonTest.'test_last_lotofacil.json' , $client->getResponse()->getContent()
+        );
+
+        $client->request('GET', '/?loteria=lotomania');
+        $this->assertJsonStringEqualsJsonFile(
+            $pathJsonTest.'test_last_lotomania.json' , $client->getResponse()->getContent()
+        );
+    }
 }
