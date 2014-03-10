@@ -84,4 +84,33 @@ class XmlLotofacilTest extends \PHPUnit_Framework_TestCase {
 	    $this->assertEquals($concursoExpected, $concurso);
     }
 
+    public function testFindLastConcursoShouldReturnAValidConcurso() {
+        $concurso = $this->xmlLotofacil->findLastConcurso();
+        $concursoExpected = [
+            'data' => '09/12/2013',
+            'dezenas' => [
+                0 => '05',
+                1 => '17',
+                2 => '08',
+                3 => '24',
+                4 => '20',
+                5 => '15',
+                6 => '11',
+                7 => '13',
+                8 => '09',
+                9 => '03',
+                10 => '19',
+                11 => '01',
+                12 => '07',
+                13 => '04',
+                14 => '10',
+            ],
+            'arrecadacao' => '19.036.316,25',
+            'total_ganhadores' => '3',
+            'acumulado' => 'NÃO',
+            'valor_acumulado' => '0,00'
+        ];
+        $this->assertEquals($concursoExpected, $concurso);
+    }
+
 }
