@@ -16,10 +16,15 @@ class IndexControllerProvider implements ControllerProviderInterface
             $concurso = $app['request']->get('concurso');
 
             try {
-                $loteria = $app['factory']
-                    ->getLoteria($loteria)
-                    ->findByConcurso($concurso);
-                return $app->json($loteria, 200);
+                $loteria = $app['factory']->getLoteria($loteria);
+
+                $result = $loteria->findLastConcurso();
+
+                if ($concurso) {
+                    $result = $loteria->findByConcurso($concurso);
+                }
+                
+                return $app->json($result, 200);
             } catch (\Exception $e) {
                 return $app->abort(400);
             }
