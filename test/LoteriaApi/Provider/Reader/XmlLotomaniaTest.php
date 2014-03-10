@@ -89,4 +89,38 @@ class XmlLotomaniaTest extends \PHPUnit_Framework_TestCase {
 	    $this->assertEquals($concursoExpected, $concurso);
     }
 
+    public function testFindLastConcursoShouldReturnAValidConcurso() {
+        $concurso = $this->xmlLotomania->findLastConcurso();
+        $concursoExpected = [
+            'data' => '22/01/2014',
+            'dezenas' => [
+                0 => '26',
+                1 => '67',
+                2 => '12',
+                3 => '60',
+                4 => '77',
+                5 => '68',
+                6 => '39',
+                7 => '34',
+                8 => '79',
+                9 => '59',
+                10 => '35',
+                11 => '93',
+                12 => '92',
+                13 => '73',
+                14 => '23',
+                15 => '70',
+                16 => '27',
+                17 => '96',
+                18 => '17',
+                19 => '36',
+            ],
+            'arrecadacao' => '5.231.545,50',
+            'total_ganhadores' => '0',
+            'acumulado' => 'SIM',
+            'valor_acumulado' => '2.397.228,70'
+        ];
+        $this->assertEquals($concursoExpected, $concurso);
+    }
+
 }
