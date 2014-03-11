@@ -24,8 +24,6 @@ abstract class AbstractXmlLoteria implements IFinder
         $arrayConcursos = [];
 
         foreach ($resultXpath as $key => $concurso) {
-            $nrconcurso = (string) $concurso->attributes()->numero;
-
             $arrayConcursos[$key]['concurso'] = (string) $concurso->attributes()->numero;
 
             $children = $concurso[0]->children();
