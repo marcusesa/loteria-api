@@ -19,15 +19,26 @@ abstract class AbstractXmlLoteria implements IFinder
 
     abstract protected function putFileName();
 
-    private function convertObjectToArrayRecursive($object)
+    private function formatResultXpathToConcursoArray($resultXpath)
     {
-        $array = (array) $object;
-        array_walk_recursive($array, function (&$value) {
-            if (is_object($value)) {
-                $value = (array) $value->dezena;
-            }
-        });
-        return $array;
+        $arrayConcursos = [];
+
+        foreach ($resultXpath as $key => $concurso) {
+            $nrconcurso = (string) $concurso->attributes()->numero;
+
+            $arrayConcursos[$key]['concurso'] = (string) $concurso->attributes()->numero;
+
+            $children = $concurso[0]->children();
+
+            $arrayConcursos[$key]['data'] = (string) $children->data;
+            $arrayConcursos[$key]['dezenas'] = (array) $children->dezenas->children()->dezena;
+            $arrayConcursos[$key]['arrecadacao'] = (string) $children->arrecadacao;
+            $arrayConcursos[$key]['total_ganhadores'] = (string) $children->total_ganhadores;
+            $arrayConcursos[$key]['acumulado'] = (string) $children->acumulado;
+            $arrayConcursos[$key]['valor_acumulado'] = (string) $children->valor_acumulado;
+        }
+
+        return $arrayConcursos;
     }
 
     private function getSimpleXml()
@@ -44,8 +55,7 @@ abstract class AbstractXmlLoteria implements IFinder
              throw new \InvalidArgumentException("Concurso does not exist");
         }
         
-        $concurso = $concurso[0]->children();
-        $concurso = $this->convertObjectToArrayRecursive($concurso);
+        $concurso = $this->formatResultXpathToConcursoArray($concurso);
 
         return $concurso;
     }
@@ -54,9 +64,8 @@ abstract class AbstractXmlLoteria implements IFinder
     {
         $concurso = $this->getSimpleXml()
             ->xpath("(/concursos/concurso)[last()]");
-
-        $concurso = $concurso[0]->children();
-        $concurso = $this->convertObjectToArrayRecursive($concurso);
+        
+        $concurso = $this->formatResultXpathToConcursoArray($concurso);
 
         return $concurso;
     }
